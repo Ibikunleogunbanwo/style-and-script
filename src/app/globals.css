@@ -3,6 +3,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --profile-green: hsl(75, 94%, 57%);
+  --profile-white: hsl(0, 0%, 100%);
+  --profile-grey-700: hsl(0, 0%, 20%);
+  --profile-grey-800: hsl(0, 0%, 12%);
+  --profile-grey-900: hsl(0, 0%, 8%);
+
 }
 
 @theme inline {
@@ -10,6 +17,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
+
+  --color-profile-green : var(--profile-green);
+  --color-profile-white : var(--profile-white);
+  --color-profile-grey-700: var(--profile-grey-700);
+  --color-profile-grey-800: var(--profile-grey-800);
+  --color-profile-grey-900: var(--profile-grey-900);
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +37,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter); 
 }
