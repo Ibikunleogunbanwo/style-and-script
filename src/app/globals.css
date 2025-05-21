@@ -1,16 +1,79 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+  --foreground: linear-gradient(180deg, #040918 0%, #091540 100%);
 
+  /* Profile Colors */
   --profile-green: hsl(75, 94%, 57%);
   --profile-white: hsl(0, 0%, 100%);
   --profile-grey-700: hsl(0, 0%, 20%);
   --profile-grey-800: hsl(0, 0%, 12%);
   --profile-grey-900: hsl(0, 0%, 8%);
 
+  /* Background Gradients */
+  --background-gradient: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+  --light-gradient: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+  --dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+
+  /* Neutral Palette */
+  --browser-neutral-0: hsl(200, 60%, 99%);
+  --browser-neutral-100: hsl(0, 0%, 93%);
+  --browser-neutral-200: hsl(217, 61%, 90%);
+  --browser-neutral-300: hsl(0, 0%, 78%);
+  --browser-neutral-600: hsl(226, 11%, 37%);
+  --browser-neutral-700: hsl(225, 23%, 24%);
+  --browser-neutral-800: hsl(226, 25%, 17%);
+  --browser-neutral-900: hsl(227, 75%, 14%);
+
+  /* Red Palette */
+  --browser-red-400: hsl(3, 86%, 64%);
+  --browser-red-500: hsl(3, 71%, 56%);
+  --browser-red-700: hsl(3, 77%, 44%);
 }
+
+/* Using prefers-color-scheme to determine dark mode values */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+
+    --profile-grey-700: hsl(0, 0%, 30%);
+    --profile-grey-800: hsl(0, 0%, 18%);
+    --profile-grey-900: hsl(0, 0%, 12%);
+
+    --browser-neutral-0: hsl(220, 20%, 16%);
+    --browser-neutral-100: hsl(220, 20%, 20%);
+    --browser-neutral-200: hsl(220, 15%, 30%);
+    --browser-neutral-300: hsl(220, 10%, 40%);
+    --browser-neutral-600: hsl(220, 10%, 60%);
+    --browser-neutral-700: hsl(220, 15%, 70%);
+    --browser-neutral-800: hsl(220, 20%, 80%);
+    --browser-neutral-900: hsl(220, 25%, 90%);
+  }
+} */
+
+/* Using css selector to determine dark mode values */
+.dark {
+  --background: linear-gradient(180deg, #040918 0%, #091540 100%);
+  --foreground: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+
+  --profile-grey-700: hsl(0, 0%, 30%);
+  --profile-grey-800: hsl(0, 0%, 18%);
+  --profile-grey-900: hsl(0, 0%, 12%);
+
+  --browser-neutral-0: hsl(220, 20%, 16%);
+  --browser-neutral-100: hsl(220, 20%, 20%);
+  --browser-neutral-200: hsl(220, 15%, 30%);
+  --browser-neutral-300: hsl(220, 10%, 40%);
+  --browser-neutral-600: hsl(220, 10%, 60%);
+  --browser-neutral-700: hsl(220, 15%, 70%);
+  --browser-neutral-800: hsl(220, 20%, 80%);
+  --browser-neutral-900: hsl(220, 25%, 90%);
+}
+
+/* Telling tailwind to use .dark selector to identify dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
@@ -19,23 +82,27 @@
   --font-mono: var(--font-geist-mono);
   --font-inter: var(--font-inter);
 
-  --color-profile-green : var(--profile-green);
-  --color-profile-white : var(--profile-white);
+  --color-profile-green: var(--profile-green);
+  --color-profile-white: var(--profile-white);
   --color-profile-grey-700: var(--profile-grey-700);
   --color-profile-grey-800: var(--profile-grey-800);
   --color-profile-grey-900: var(--profile-grey-900);
 
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-browser-neutral-0: var(--browser-neutral-0);
+  --color-browser-neutral-100: var(--browser-neutral-100);
+  --color-browser-neutral-200: var(--browser-neutral-200);
+  --color-browser-neutral-300: var(--browser-neutral-300);
+  --color-browser-neutral-600: var(--browser-neutral-600);
+  --color-browser-neutral-700: var(--browser-neutral-700);
+  --color-browser-neutral-800: var(--browser-neutral-800);
+  --color-browser-neutral-900: var(--browser-neutral-900);
+  --color-browser-red-400: var(--browser-red-400);
+  --color-browser-red-500: var(--browser-red-500);
+  --color-browser-red-700: var(--browser-red-700);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter); 
+  font-family: var(--font-inter), sans-serif;
 }
