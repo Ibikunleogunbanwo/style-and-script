@@ -9,7 +9,7 @@ const Card = (data) => {
   const handleToggle = () => setIsActive(prev => !prev);
 
   return (
-    <div className="h-45 grid content-between bg-browser-neutral-0 dark:bg-browser-neutral-100 border-none rounded-xl shadow-md text-wrap transition-colors duration-300">
+    <div className="h-40 grid content-between bg-browser-neutral-0 dark:bg-browser-neutral-100 border-none rounded-xl shadow-md text-wrap transition-colors duration-300 py-2">
       <div className="flex gap-2 pt-3 px-2 h-auto items-start">
         <Image className="h-14" 
         src={data.logo}
@@ -28,7 +28,7 @@ const Card = (data) => {
         </div>
       </div>
 
-      <div className="flex flex-nowrap justify-between items-center px-2 h-auto w-full">
+      <div className="flex flex-nowrap justify-between place-items-end px-2 h-auto w-full">
         <div className="text-xs m-2">
           <button className=" px-4 py-2 border border-browser-neutral-300 rounded-3xl mb-4 hover:bg-browser-red-500 hover:text-white dark:text-white hover:dark:text-black font-bold">
             Remove

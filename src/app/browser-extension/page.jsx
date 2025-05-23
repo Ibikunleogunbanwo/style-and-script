@@ -11,12 +11,30 @@ import Carddata from "../data/data.json";
 import { useSearchParams, useRouter } from "next/navigation";
 
 const Browser = () => {
-  const [theme, setTheme] = useState("light");
 
   const router = useRouter();
 
   const searchParams = useSearchParams();
-  console.log(searchParams.get("filter"));
+  
+  const [theme, setTheme] = useState("light");
+
+
+  // check the store theme on render 
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      setTheme(storedTheme);
+    }
+  }, []);
+
+  // Store current theme for persistent
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+
+    console.log("Current theme is :", theme);
+  }, [theme]);
+
+
 
   const [filterMode, setFilterMode] = useState("all");
 
