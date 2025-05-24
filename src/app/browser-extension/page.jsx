@@ -15,11 +15,13 @@ const Browser = () => {
   const router = useRouter();
 
   const searchParams = useSearchParams();
-  
+
   const [theme, setTheme] = useState("light");
 
+  const [filterMode, setFilterMode] = useState("all");
 
-  // check the store theme on render 
+
+  // check the local storage for saved theme on render 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme) {
@@ -35,14 +37,22 @@ const Browser = () => {
   }, [theme]);
 
 
-
-  const [filterMode, setFilterMode] = useState("all");
-
   const updateFilter = (filter) => {
     const params = new URLSearchParams(searchParams);
     params.set("filter", filter);
     router.push(`?${params.toString()}`);
   };
+ 
+
+  console.log(searchParams)
+
+  useEffect(() => {
+    const filter = searchParams.get("filter");
+    setFilterMode(filter);
+  }, [searchParams]);
+
+
+  
 
   const toggleTheme = () => {
     if (theme === "light") setTheme("dark");
@@ -54,10 +64,7 @@ const Browser = () => {
     else document.documentElement.classList.add("dark");
   }, [theme]);
 
-  useEffect(() => {
-    const filter = searchParams.get("filter");
-    setFilterMode(filter);
-  }, [searchParams]);
+ 
 
   return (
     <main className="mx-3 my-8">

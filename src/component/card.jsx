@@ -9,7 +9,7 @@ const Card = (data) => {
   const handleToggle = () => setIsActive(prev => !prev);
 
   return (
-    <div className="h-40 grid content-between bg-browser-neutral-0 dark:bg-browser-neutral-100 border-none rounded-xl shadow-md text-wrap transition-colors duration-300 py-2">
+    <div className="h-40 grid content-between bg-browser-neutral-0 dark:bg-browser-neutral-100 border-none rounded-xl shadow-md text-wrap py-2">
       <div className="flex gap-2 pt-3 px-2 h-auto items-start">
         <Image className="h-14" 
         src={data.logo}
